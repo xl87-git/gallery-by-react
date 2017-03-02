@@ -88,11 +88,48 @@ class ImgFigure extends React.Component{
 				 alt ={this.props.data.title} />
 				<figcaption>
 					<h2 className="img-title">{this.props.data.title}</h2>
-					<div className='img-back' onClick={this.handleClick}>
-						{this.props.data.desc}
-					</div>
+					 <div className='img-back' onClick={this.handleClick}>
+					 	{this.props.data.desc}
+					 </div>
 				</figcaption>
 			</figure>
+		);
+	}
+}
+
+//控制组件
+class ControllerUnit extends React.Component{
+	constructor(props){
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(e){
+		e.stopPropagation();
+		e.preventDefault();
+		//如果选中图片是居中的，则翻转图片；如果不是居中的，则将其居中
+		if(this.props.arrange.isCenter){
+			this.props.inverse();
+		}else{
+			this.props.center();
+		}
+	}
+
+	render(){
+		var controllerUnitClassName = 'controller-unit';
+
+		//如果是居中的图片，显示居中状态
+		if(this.props.arrange.isCenter){
+			controllerUnitClassName += ' is-center';
+		}
+
+		//如果是翻转图片，显示翻转状态
+		if(this.props.arrange.isInverse){
+			controllerUnitClassName += ' is-inverse';
+		}
+
+		return (
+			<span className={controllerUnitClassName} onClick={this.handleClick}></span>
 		);
 	}
 }
@@ -284,7 +321,9 @@ class AppComponent extends React.Component {
   	this.Constant.vPosRange.x[0] = halfStageW - imgW;
   	this.Constant.vPosRange.x[1] = halfStageW;
 
-  	// let num = Math.floor(Math.random() * 9);
+  	// let len = this.state.imgsArrangeArr.length;
+
+  	//  let num = Math.floor(Math.random() * len);
   	this.rearrange(0);
 
   }
@@ -306,6 +345,10 @@ class AppComponent extends React.Component {
   				};
   			}
   			imgFigures.push(<ImgFigure data={value} key={index} ref={'imgFigure' + index}
+  			 arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
+  			 center={this.center(index)}/>);
+
+  			 controllerUnits.push(<ControllerUnit key={index}
   			 arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
   			 center={this.center(index)}/>);
   		}.bind(this));
