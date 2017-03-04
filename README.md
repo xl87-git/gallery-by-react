@@ -63,38 +63,3 @@ git push  
 
 最后我把Main.js中不同的组件拆分出来，放在不同js文件里了。感觉这样清晰一些，要不然Main.js里内容太多<br/>
 
-
-
-
-
-
-
-.
-├── /cfg/                       # webpack配置文件存放目录
-│   ├── base.js                 # 基础配置
-│   ├── default.js              # 默认配置
-│   ├── dev.js                  # 开发环境配置
-|   ├── dist.js                 # 生成环境配置
-│   └── test.js                 # 测试环境配置
-├── /dist/                      # 存放最终打包输出的用于生产环境的项目文件
-├── /node_modules/              # node模块存放的目录
-├── /src/                       # 存放开发环境项目源码
-│   ├── /actions/               # flux actions目录（没用到）
-│   ├── /components/            # 组件目录
-│   ├── /config/                # 配置目录（没用到）
-│   ├── /sources/               # flux datasources目录（没用到）
-│   ├── /stores/                # flux stores(没用到)
-│   ├── /styles/                # 样式文件目录，内有一个App.css基础css文件
-│   ├── index.html              # 项目入口文件
-│   └── index.js                # js入口文件
-├── /test/                      # 单元测试和集成测试目录
-│── .babelrc                    # Babel 配置文件
-│── .eslintrc                   # ESLint代码风格检测配置文件
-│── .gitignore                  # 配置不需要加入Git版本管理的文件
-│── .yo-rc.json                 # yeoman的配置文件
-│── karma.conf.js               # karma测试框架的配置
-│── LICENSE                     # 软件使用许可
-│── package.json                # npm的依赖配置项
-│── README.md                   # 项目说明文件
-│── server.js                   # 项目运行的js文件，命令可查看package.json中的script
-└── webpack.config.js           # webpack配置文件，不同环境的配置项在cfg目录下
