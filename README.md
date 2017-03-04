@@ -27,7 +27,7 @@ grep generator-  在前一个输出中检索generator开头的内容。<br/>
 flux,reflux，alt 这些框架选什么，这些框架主要用来处理react程序中的数据流，多个视图的状态共享、更新、数据维护等，这个程序也不需要，所以N。<br/>
 老师在项目中使用的是ES5,我现在使用的是ES6,语法会稍有不同，下面的链接详细讲解了ES5和ES6的对照表：<br/>
 http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8<br/>
-<div style="background-color:#ccc">
+<p style="color:#ccc">
 #添加所有更改的文件到本地缓存区<br/>
 git add -A     <br/><br/>
 
@@ -38,4 +38,4 @@ git commit -m "something you have done"<br/> <br/> 
 
 #将本地仓库内容上传到远程仓库<br/>
 git push   
-</div>
+</p>
